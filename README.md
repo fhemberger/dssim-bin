@@ -6,6 +6,8 @@
 
 ## Install
 
+To compile dssim, `pkg-config` needs to be installed first (e.g. via `apt-get install pgk-config` on Debian/Ubuntu or via [Homebrew](http://brew.sh/)'s `brew install pkg-config` command on OS X).
+
 ```
 $ npm install --save dssim-bin
 ```
