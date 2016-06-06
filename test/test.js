@@ -20,7 +20,7 @@ afterEach(function () {
 
 it('rebuild the dssim binaries', function (cb) {
 	new BinBuild()
-		.src('https://github.com/pornel/dssim/archive/1.1.1.tar.gz')
+		.src('https://github.com/pornel/dssim/archive/1.3.2.tar.gz')
 		.cmd('make DESTDIR=' + tmp + (process.platform === 'darwin' ? '/ USE_COCOA=1' : '/'))
 		.run(function (err) {
 			assert(!err);
@@ -30,8 +30,12 @@ it('rebuild the dssim binaries', function (cb) {
 });
 
 it('return path to binary and verify that it is working', function (cb) {
-	binCheck(require('../'), function (err) {
-		assert(!err);
-		cb();
-	});
+	binCheck(require('../'))
+		.then((err) => {
+			assert(!err);
+			cb();
+		})
+		.catch((err) => {
+			cb(err);
+		});
 });
