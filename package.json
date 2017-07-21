@@ -22,7 +22,7 @@
     "dssim"
   ],
   "dependencies": {
-    "bin-build": "^2.0.0",
+    "bin-build": "^3.0.0",
     "bin-wrapper": "^3.0.0",
     "logalot": "^2.0.0"
   },
