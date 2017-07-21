@@ -1,4 +1,6 @@
-# dssim-bin [![Build Status](http://img.shields.io/travis/fhemberger/dssim-bin.svg?style=flat)](http://travis-ci.org/fhemberger/dssim-bin)
+# dssim-bin [![Build Status](http://img.shields.io/travis/fhemberger/dssim-bin.svg?style=flat)](http://travis-ci.org/fhemberger/dssim-bin) ![Current Version](https://img.shields.io/npm/v/dssim-bin.svg)
+
+**Note:** npm package version doesn't follow [semver](http://semver.org/) but matches the `dssim` binary versions.
 
 > [dssim](https://github.com/pornel/dssim) is a tool to compute the (dis)similarity between two or more PNG images using an algorithm approximating human vision.
 >

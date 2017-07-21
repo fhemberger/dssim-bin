@@ -11,6 +11,11 @@
   "bin": {
     "dssim": "cli.js"
   },
+  "files": [
+    "lib",
+    "cli.js",
+    "index.js"
+  ],
   "scripts": {
     "postinstall": "node lib/install.js",
     "test": "mocha --timeout 50000"
@@ -22,14 +27,14 @@
     "dssim"
   ],
   "dependencies": {
-    "bin-build": "^2.0.0",
+    "bin-build": "^3.0.0",
     "bin-wrapper": "^3.0.0",
     "logalot": "^2.0.0"
   },
   "devDependencies": {
-    "bin-check": "^4.0.0",
+    "bin-check": "^4.1.0",
     "mkdirp": "^0.5.0",
-    "mocha": "^2.5.3",
-    "rimraf": "^2.5.2"
+    "mocha": "^3.4.2",
+    "rimraf": "^2.6.1"
   }
 }
