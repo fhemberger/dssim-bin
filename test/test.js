@@ -9,6 +9,7 @@ const binCheck = require('bin-check');
 const mkdirp = require('mkdirp');
 const rimraf = require('rimraf');
 const tmp = path.join(__dirname, 'tmp');
+const pkg = require('../package.json');
 
 beforeEach(function () {
 	mkdirp.sync(tmp);
@@ -19,7 +20,7 @@ afterEach(function () {
 });
 
 it('should rebuild the dssim binaries', (done) => {
-	binBuild.url('https://github.com/pornel/dssim/archive/1.3.2.tar.gz', [
+	binBuild.url(`https://github.com/pornel/dssim/archive/${pkg.version}.tar.gz`, [
 		`make DESTDIR=${tmp}${(process.platform === 'darwin' ? '/ USE_COCOA=1' : '/')}`
 	])
 	.then(() => {
@@ -30,7 +31,8 @@ it('should rebuild the dssim binaries', (done) => {
 });
 
 it('should return path to binary and verify that it is working', (done) => {
-	binCheck(require('../'), ['test/1x1.png', 'test/1x1.png'])
+	const image = path.join(__dirname, '1x1.png')
+	binCheck(require('../'), [image, image])
 		.then(() => done())
 		.catch(err => done(err));
 });
