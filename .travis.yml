@@ -3,6 +3,8 @@ cache: cargo
 install:
   - npm install
 script:
+  - ls vendor
+  - ls vendor/release
   - ls vendor/release/build
 os:
   - linux
