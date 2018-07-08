@@ -5,7 +5,7 @@ install:
 script:
   - ls -lAh vendor
   - ls -lAh vendor/release
-  - find . -type f -exec file {} \;
+  - find vendor/release -type f -exec file {} \;
   - ls -lAh vendor/release/build
 os:
   - linux
