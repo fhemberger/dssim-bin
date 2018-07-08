@@ -3,7 +3,22 @@ cache: cargo
 install:
   - npm install
 script:
-  - ls vendor/release/build
+  - set -eo pipefail
+  - npm run build
+  - mkdir bin
+  - cp vendor/release/dssim bin/dssim-${TRAVIS_OS_NAME}
 os:
   - linux
   - osx
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
+  committer-from-gh: true
+  target-branch: "$TRAVIS_BRANCH"
+  on:
+    branch: "$TRAVIS_BRANCH"
+env:
+  global:
+    secure: oXtZ0gINJaC3yE8ebIZUyuKPiDOZSMKx61Fr1zR+wVNHJ6g9OuEC0jU/nqWZvBoI7uSKMBAMBcZGFDzAqEOpCezfrG0TP+xig8XpzZNoTJ7e2TeLqy59ful1bDpAZ3uKtYqNscN16bR6/zQikCNET06xuS8EyTg56Ixs7L3SveZNFdpBRqCtaUsBAfU8CmWM6QJ5RmH6/WkZ7iCJC/KSPP0PaKuw7TN9Q1gv8JMcVCsNiEfP1jUNjTK1T32A+8UhMfnJRa22ehVHVrtMMuoSsTzkgJdV7iVzFkSnVE0cPzn34APVq2DXbyUmckzTXCDkYtq5DXzpc7rpfRZsHC0V/p++1xSQednxrdQsNqWfNqE3iJbMtOWc6RiUVDYtSC04URYZmR1dvRkFnEA5YlGnotXrK08r6VwwBexWyUaJacd8YsQPP7hBPYX25GCzL4Bs8un6kZxfF1fSnoBdwj0dDAr0cn68S72K2TQ4qpvVumNbFRQO4e82/wbBH/DWTSmEAZRk9Dy80lag7mOH9aNIhLjbFQB0wpMe0HQxJrJlzj8wGZeG5TFDueOlYddSGKBq5ImIlZa6AVL1VrT4lht6VGMAcrt/Cvx3dzjLFJFRHkm8fiXxKauLzY4XsfL64L+VBYAj9RQTcgjm5VBycmDiBigXqdZxboD0Sy0jyKRl1g4=
