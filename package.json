@@ -17,7 +17,7 @@
     "index.js"
   ],
   "scripts": {
-    "postinstall": "npm run build",
+    "postinstall": "echo \"Disabled 'npm run build' in this branch, need to add prebuilt binaries instead\"",
     "build": "node lib/install.js",
     "test": "mocha --timeout 50000",
     "snyk-protect": "snyk protect",
