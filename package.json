@@ -19,7 +19,7 @@
   "scripts": {
     "postinstall": "npm run build",
     "build": "node lib/install.js",
-    "test": "mocha --timeout 50000"
+    "test": "mocha --timeout 50000",
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect"
   },
